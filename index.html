@@ -3,11 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>V0ID Mining</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--bg:#040404;
+--panel:#090909;
+--border:#151515;
+--soft:#777;
+--green:#00ffbf;
+--pink:#ff4fa3;
+--yellow:#ffe66d;
+--cyan:#4de3ff;
+}
 
 *{
 margin:0;
@@ -16,9 +29,10 @@ box-sizing:border-box;
 }
 
 body{
-background:#040404;
+background:var(--bg);
 font-family:'Space Mono',monospace;
-color:#d8d8d8;
+color:white;
+padding:30px;
 overflow-x:hidden;
 }
 
@@ -27,26 +41,115 @@ content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at top right,#00ffbf11,transparent 30%),
-radial-gradient(circle at bottom left,#ff00aa10,transparent 30%);
+radial-gradient(circle at top right,#00ffbf15,transparent 30%),
+radial-gradient(circle at bottom left,#ff009920,transparent 30%);
 pointer-events:none;
 }
 
-.container{
-width:95%;
-max-width:1500px;
+.wrapper{
+max-width:1450px;
 margin:auto;
-padding:25px 0 80px;
 }
 
-.panel{
-background:#060606;
-border:1px solid #14211d;
+/* HEADER */
+
+.header{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:18px;
+padding:22px 28px;
+margin-bottom:24px;
+}
+
+.header-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.brand img{
+width:58px;
+height:58px;
 border-radius:14px;
-padding:18px;
+object-fit:cover;
+}
+
+.brand h1{
+font-family:'Orbitron';
+font-size:28px;
+letter-spacing:5px;
+color:var(--green);
+}
+
+.wallet-btn{
+height:58px;
+padding:0 34px;
+border-radius:12px;
+border:1px solid var(--green);
+background:transparent;
+color:var(--green);
+font-family:'Orbitron';
+letter-spacing:3px;
+cursor:pointer;
+font-size:14px;
+transition:.2s;
+}
+
+.wallet-btn:hover{
+background:var(--green);
+color:black;
+}
+
+.nav{
+display:flex;
+gap:42px;
+margin-top:24px;
+padding-top:18px;
+border-top:1px solid #111;
+}
+
+.nav a{
+text-decoration:none;
+color:#7d7d7d;
+font-size:13px;
+letter-spacing:3px;
+padding-bottom:12px;
+}
+
+.nav a.active{
+color:var(--green);
+border-bottom:2px solid var(--green);
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:1.15fr .85fr;
+gap:22px;
+}
+
+.column{
+display:flex;
+flex-direction:column;
+gap:22px;
+}
+
+/* PANELS */
+
+.panel{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:18px;
+padding:22px;
 position:relative;
 overflow:hidden;
-box-shadow:0 0 0 1px #0c0c0c inset;
 }
 
 .panel::before{
@@ -56,259 +159,226 @@ inset:0;
 background:linear-gradient(
 180deg,
 transparent,
-rgba(0,255,180,.03),
+rgba(255,255,255,.015),
 transparent
 );
 pointer-events:none;
 }
 
-.topbar{
+.panel-title{
 display:flex;
 justify-content:space-between;
 align-items:center;
 margin-bottom:20px;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:16px;
-}
-
-.logo img{
-width:56px;
-height:56px;
-border-radius:14px;
-}
-
-.logo h1{
-font-family:'Orbitron';
-letter-spacing:4px;
-font-size:28px;
-color:#00ffbf;
-}
-
-.connect{
-background:transparent;
-border:1px solid #00ffbf;
-color:#00ffbf;
-padding:16px 40px;
-font-family:'Orbitron';
-letter-spacing:3px;
-cursor:pointer;
-border-radius:10px;
-font-size:15px;
-transition:.2s;
-}
-
-.connect:hover{
-background:#00ffbf;
-color:black;
-}
-
-.nav{
-display:flex;
-gap:50px;
-margin-top:25px;
-border-top:1px solid #101010;
-padding-top:18px;
-}
-
-.nav a{
-text-decoration:none;
-color:#888;
-letter-spacing:3px;
-font-size:13px;
-padding-bottom:10px;
-}
-
-.nav a.active{
-color:#00ffbf;
-border-bottom:2px solid #00ffbf;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1.3fr .9fr;
-gap:20px;
-margin-top:20px;
-}
-
-.stack{
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.title{
 font-size:13px;
 letter-spacing:4px;
 color:#8d8d8d;
-margin-bottom:18px;
 }
 
+/* TABLE */
+
 .table{
-border:1px solid #16231f;
-border-radius:12px;
+border:1px solid #161616;
+border-radius:14px;
 overflow:hidden;
 }
 
-.row{
+.table-row{
 display:flex;
 justify-content:space-between;
-padding:18px;
-border-bottom:1px solid #111;
+align-items:center;
+padding:18px 20px;
+border-bottom:1px solid #101010;
 }
 
-.row:last-child{
+.table-row:last-child{
 border-bottom:none;
 }
 
 .big{
 font-size:58px;
 font-weight:bold;
-color:#ff4fa5;
-}
-
-.yellow{
-color:#ffe87c;
+line-height:1;
 }
 
 .green{
-color:#00ffbf;
+color:var(--green);
 }
 
-.muted{
-color:#666;
+.pink{
+color:var(--pink);
 }
 
-.tradeBox{
+.yellow{
+color:var(--yellow);
+}
+
+.soft{
+color:var(--soft);
+}
+
+/* TRADE */
+
+.trade-card{
+border:1px solid #161616;
+border-radius:16px;
+padding:20px;
 margin-top:18px;
-border:1px solid #16231f;
-border-radius:12px;
-padding:18px;
 }
 
-.inputWrap{
-margin-top:14px;
+.trade-head{
+display:flex;
+justify-content:space-between;
+margin-bottom:18px;
+font-size:14px;
+}
+
+.trade-input{
 position:relative;
 }
 
-input{
+.trade-input input{
 width:100%;
+height:74px;
 background:#050505;
-border:1px solid #1b1b1b;
-height:70px;
+border:1px solid #191919;
+border-radius:12px;
 padding:0 20px;
+font-size:30px;
 color:white;
-font-size:28px;
-border-radius:10px;
 font-family:'Space Mono';
 outline:none;
 }
 
 .max{
 position:absolute;
-right:10px;
-top:10px;
+right:12px;
+top:12px;
+height:48px;
+padding:0 16px;
 background:transparent;
-border:1px solid #00ffbf;
-color:#00ffbf;
-padding:10px 14px;
-border-radius:8px;
+border:1px solid var(--green);
+color:var(--green);
+border-radius:10px;
 cursor:pointer;
+font-family:'Orbitron';
 }
 
-.buyBtn{
+.trade-meta{
+margin-top:18px;
+line-height:1.8;
+font-size:14px;
+}
+
+.action-btn{
 width:100%;
-height:62px;
+height:60px;
 margin-top:20px;
 background:transparent;
-border:1px solid #00ffbf;
-color:#00ffbf;
+border:1px solid var(--green);
+border-radius:12px;
+color:var(--green);
 font-family:'Orbitron';
-font-size:18px;
+font-size:16px;
 letter-spacing:4px;
-border-radius:10px;
 cursor:pointer;
 transition:.2s;
 }
 
-.buyBtn:hover{
-background:#00ffbf;
+.action-btn:hover{
+background:var(--green);
 color:black;
 }
 
-.stats{
+/* STATS */
+
+.stats-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-border:1px solid #16231f;
-border-radius:12px;
+border:1px solid #161616;
+border-radius:14px;
 overflow:hidden;
 }
 
-.stats div{
-padding:20px;
+.stats-grid div{
+padding:22px;
 border-right:1px solid #111;
 border-bottom:1px solid #111;
 }
 
-.stats div:nth-child(2n){
+.stats-grid div:nth-child(2n){
 border-right:none;
 }
 
-.stats h2{
+.stats-grid h2{
 font-size:42px;
 margin-bottom:10px;
 }
 
+/* LIST */
+
 .list{
-margin-top:10px;
+display:flex;
+flex-direction:column;
+gap:2px;
 }
 
-.item{
+.list-item{
 display:flex;
 justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #0e0e0e;
+padding:15px 0;
+border-bottom:1px solid #101010;
 }
 
-.item:last-child{
+.list-item:last-child{
 border-bottom:none;
 }
 
-.pink{
-color:#ff4fa5;
+.small{
+font-size:13px;
 }
 
-.contracts .item{
+.contracts .list-item{
 font-size:14px;
 }
 
-.footerText{
-margin-top:12px;
-font-size:12px;
-color:#666;
-line-height:1.8;
-}
+/* MOBILE */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
+
+body{
+padding:18px;
+}
 
 .grid{
 grid-template-columns:1fr;
+}
+
+.header-top{
+flex-direction:column;
+align-items:flex-start;
+gap:20px;
+}
+
+.wallet-btn{
+width:100%;
+}
+
+.nav{
+overflow:auto;
+gap:24px;
 }
 
 .big{
 font-size:42px;
 }
 
-.logo h1{
-font-size:20px;
+.stats-grid{
+grid-template-columns:1fr;
 }
 
-.nav{
-gap:20px;
-overflow:auto;
+.stats-grid div{
+border-right:none;
 }
 
 }
@@ -318,18 +388,20 @@ overflow:auto;
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<div class="panel">
+<!-- HEADER -->
 
-<div class="topbar">
+<div class="header">
 
-<div class="logo">
-<img src="https://i.imgur.com/1X4JQ5Y.png">
+<div class="header-top">
+
+<div class="brand">
+<img src="https://i.imgur.com/8WeRZYx.jpeg">
 <h1>V0ID MINING</h1>
 </div>
 
-<button class="connect">
+<button class="wallet-btn">
 CONNECT WALLET →
 </button>
 
@@ -343,141 +415,170 @@ CONNECT WALLET →
 
 </div>
 
+<!-- CONTENT -->
+
 <div class="grid">
 
-<div class="stack">
+<!-- LEFT -->
+
+<div class="column">
+
+<!-- MOTHERMODE -->
 
 <div class="panel">
 
-<div class="title">— ⚡ MOTHERMODE</div>
+<div class="panel-title">
+<span>— ⚡ MOTHERMODE</span>
+<span class="green">LIVE</span>
+</div>
 
 <div class="table">
 
-<div class="row">
-<div>Pool (live est.)</div>
-<div class="big">238,84 <span style="font-size:28px">V0ID</span></div>
+<div class="table-row">
+<span>Pool (live est.)</span>
+<div class="big pink">238,84</div>
 </div>
 
-<div class="row">
-<div>Odds (0.1 BASE → 1 BASE+)</div>
-<div class="yellow">0.16% → 1.00%</div>
+<div class="table-row">
+<span>Odds (0.1 BASE → 1 BASE+)</span>
+<span class="yellow">0.16% → 1.00%</span>
 </div>
 
-<div class="row">
-<div>Pending rolls</div>
-<div class="muted">● ● ● ● ● ● ● ● ●</div>
+<div class="table-row">
+<span>Pending rolls</span>
+<span class="soft">● ● ● ● ● ● ● ● ●</span>
 </div>
 
-<div class="row">
-<div>Min buy</div>
-<div>0.1 BASE</div>
-</div>
-
+<div class="table-row">
+<span>Min buy</span>
+<span>0.1 BASE</span>
 </div>
 
 </div>
+
+</div>
+
+<!-- EMISSIONS -->
 
 <div class="panel">
 
-<div class="title">— ◇ EMISSIONS</div>
+<div class="panel-title">
+<span>— ◇ EMISSIONS</span>
+</div>
 
 <div class="table">
 
-<div class="row">
-<div>Today's rate</div>
-<div class="yellow">980 V0ID/day</div>
+<div class="table-row">
+<span>Today's rate</span>
+<span class="yellow">980 V0ID/day</span>
 </div>
 
-<div class="row">
-<div>Decay</div>
-<div>-1% / day · half-life 69d</div>
+<div class="table-row">
+<span>Decay</span>
+<span>-1% / day · half-life 69d</span>
 </div>
 
-<div class="row">
-<div>Split</div>
-<div>80% stakers · 20% mothermode</div>
-</div>
-
+<div class="table-row">
+<span>Split</span>
+<span>80% stakers · 20% mothermode</span>
 </div>
 
 </div>
+
+</div>
+
+<!-- TRADE -->
 
 <div class="panel">
 
-<div class="title">— ↔ TRADE · V0ID / BASE</div>
-
-<div class="tradeBox">
-
-<div style="display:flex;justify-content:space-between">
-<div>BUY V0ID</div>
-<div>slippage: 2%</div>
+<div class="panel-title">
+<span>— ↔ TRADE · V0ID / BASE</span>
+<span class="soft">LIVE: 1 BASE = 52 V0ID</span>
 </div>
 
-<div class="inputWrap">
-<input value="0.1">
+<!-- BUY -->
+
+<div class="trade-card">
+
+<div class="trade-head">
+<span>BUY V0ID</span>
+<span>slippage: 2%</span>
+</div>
+
+<div class="trade-input">
+<input type="text" value="0.1">
 <button class="max">MAX</button>
 </div>
 
-<div style="margin-top:15px">
-Receive ≈ <span class="yellow">5,1386 V0ID</span>
+<div class="trade-meta">
+Receive ≈ <span class="yellow">5,1386 V0ID</span><br>
+<span class="soft">
+Balance: 0 BASE · 1% buy tax
+</span>
 </div>
 
-<button class="buyBtn">BUY</button>
+<button class="action-btn">
+BUY
+</button>
 
 </div>
 
-<div class="tradeBox">
+<!-- SELL -->
 
-<div style="display:flex;justify-content:space-between">
-<div>SELL V0ID</div>
-<div>slippage: 2%</div>
+<div class="trade-card">
+
+<div class="trade-head">
+<span>SELL V0ID</span>
+<span>slippage: 2%</span>
 </div>
 
-<div class="inputWrap">
-<input placeholder="V0ID amount">
+<div class="trade-input">
+<input type="text" placeholder="V0ID amount">
 <button class="max">MAX</button>
 </div>
 
-<div style="margin-top:15px">
-Receive ≈ <span class="yellow">0 BASE</span>
+<div class="trade-meta">
+Receive ≈ <span class="yellow">0 BASE</span><br>
+<span class="soft">
+1% sell tax → buyback bucket
+</span>
 </div>
 
-<button class="buyBtn">
+<button class="action-btn">
 APPROVE + SELL
 </button>
 
 </div>
 
-<div class="footerText">
-Quote is live from the pool's current sqrtPriceX96.
-Slippage limit binds the minOut.
-Selling N V0ID burns paired orelings.
 </div>
 
-</div>
+<!-- TOP STAKERS -->
 
 <div class="panel">
 
-<div class="title">— 🏔 TOP STAKERS</div>
+<div class="panel-title">
+<span>— 🏔 TOP STAKERS</span>
+<span class="soft">43 ACTIVE</span>
+</div>
 
 <div class="list">
 
-<div class="item">
+<div class="list-item">
 <span>0x0ea1...e574</span>
 <span class="yellow">18.111</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>0x15e9...59c9</span>
 <span class="yellow">13.014</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>0x71f0...3F4B</span>
 <span class="yellow">12.992</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>0x35F5...bE33</span>
 <span class="yellow">8.756</span>
 </div>
@@ -488,81 +589,99 @@ Selling N V0ID burns paired orelings.
 
 </div>
 
-<div class="stack">
+<!-- RIGHT -->
+
+<div class="column">
+
+<!-- MY MINING -->
 
 <div class="panel">
 
-<div class="title">— ⛏ MY MINING</div>
+<div class="panel-title">
+<span>— ⛏ MY MINING</span>
+</div>
 
-<div class="stats">
+<div class="stats-grid">
 
 <div>
 <h2 class="yellow">576</h2>
-<p>Total Stakers</p>
+<p class="small">TOTAL STAKERS</p>
 </div>
 
 <div>
 <h2 class="yellow">768.067</h2>
-<p>Total Mining Power</p>
+<p class="small">TOTAL MINING POWER</p>
 </div>
 
 <div>
 <h2 class="green">5.589</h2>
-<p>V0ID Staked</p>
+<p class="small">V0ID STAKED</p>
 </div>
 
 <div>
 <h2 class="green">0</h2>
-<p>Pending V0ID</p>
+<p class="small">PENDING V0ID</p>
 </div>
 
 <div>
 <h2 class="green">0/0</h2>
-<p>Staked / Owned</p>
+<p class="small">STAKED / OWNED</p>
 </div>
 
 <div>
 <h2 class="green">0</h2>
-<p>Total Claimed</p>
+<p class="small">TOTAL CLAIMED</p>
 </div>
 
 </div>
 
-<div style="display:flex;gap:10px;margin-top:20px">
+<div style="display:flex;gap:12px;margin-top:20px">
 
-<button class="buyBtn">STAKE</button>
-<button class="buyBtn">CLAIM</button>
-<button class="buyBtn">UNSTAKE</button>
+<button class="action-btn">
+STAKE
+</button>
+
+<button class="action-btn">
+CLAIM
+</button>
+
+<button class="action-btn">
+UNSTAKE
+</button>
 
 </div>
 
 </div>
+
+<!-- RECENT HITS -->
 
 <div class="panel">
 
-<div class="title">— ★ RECENT MOTHERMODE HITS</div>
+<div class="panel-title">
+<span>— ★ RECENT MOTHERMODE HITS</span>
+</div>
 
 <div class="list">
 
-<div class="item">
+<div class="list-item">
 <div>
-<div class="pink">BUYER</div>
+<div class="pink small">BUYER</div>
 <div>0x54F8...c828</div>
 </div>
 <div class="green">+39,88 V0ID</div>
 </div>
 
-<div class="item">
+<div class="list-item">
 <div>
-<div class="pink">BUYER</div>
+<div class="pink small">BUYER</div>
 <div>0xb479...4ad3</div>
 </div>
 <div class="green">+44,82 V0ID</div>
 </div>
 
-<div class="item">
+<div class="list-item">
 <div>
-<div class="pink">BUYER</div>
+<div class="pink small">BUYER</div>
 <div>0xe004...64C1</div>
 </div>
 <div class="green">+2,63 V0ID</div>
@@ -572,28 +691,32 @@ Selling N V0ID burns paired orelings.
 
 </div>
 
+<!-- BUYBACK -->
+
 <div class="panel">
 
-<div class="title">— ✖ RECENT BUYBACK + BURNS</div>
+<div class="panel-title">
+<span>— ✖ RECENT BUYBACK + BURNS</span>
+</div>
 
 <div class="list">
 
-<div class="item">
+<div class="list-item">
 <span>#25064686</span>
 <span class="pink">-0,06 V0ID</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>#25064681</span>
 <span class="pink">-0,05 V0ID</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>#25064666</span>
 <span class="pink">-0,02 V0ID</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>#25064660</span>
 <span class="pink">-0,06 V0ID</span>
 </div>
@@ -602,37 +725,36 @@ Selling N V0ID burns paired orelings.
 
 </div>
 
+<!-- CONTRACTS -->
+
 <div class="panel contracts">
 
-<div class="title">— ⛓ CONTRACTS · BASE MAINNET</div>
+<div class="panel-title">
+<span>— ⛓ CONTRACTS · BASE MAINNET</span>
+</div>
 
 <div class="list">
 
-<div class="item">
+<div class="list-item">
 <span>V0ID Token</span>
 <span class="yellow">0x1f6102...</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>Uniswap v4 Hook</span>
 <span class="yellow">0x5c5f3...</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>V0ID Router</span>
 <span class="yellow">0x02075...</span>
 </div>
 
-<div class="item">
+<div class="list-item">
 <span>v4 PoolManager</span>
 <span class="yellow">0x00000...</span>
 </div>
 
-</div>
-
-<div class="footerText">
-All swaps execute through V0ID Router into the canonical
-V0ID/BASE pool.
 </div>
 
 </div>
