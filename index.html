@@ -408,8 +408,8 @@ CONNECT WALLET →
 </div>
 
 <div class="nav">
-<a class="active" href="#">DASHBOARD</a>
-<a href="#">WHITEPAPER</a>
+<a id="dashboardBtn" class="active" href="#">DASHBOARD</a>
+<a id="whitepaperBtn" href="#">WHITEPAPER</a>
 <a href="#">X ↗</a>
 </div>
 
@@ -764,6 +764,458 @@ UNSTAKE
 </div>
 
 </div>
+ <!-- WHITEPAPER PAGE -->
+
+<section id="whitepaperPage" class="page hidden">
+
+<div class="panel whitepaper">
+
+<div class="panel-title">
+<span>WHITEPAPER · v1.0</span>
+</div>
+
+<h1 class="wp-title">V0ID</h1>
+
+<p class="wp-hero">
+A mineable store of value. Forge V0IDLINGS.
+Strike the motherlode. Burn your way to scarcity.
+</p>
+
+<hr class="wp-divider">
+
+<!-- SECTION -->
+
+<div class="wp-section">
+
+<h2>1. What is V0ID</h2>
+
+<p>
+V0ID is a BASE-native token where every whole V0ID you hold
+is paired 1:1 with a V0IDLING — a fully on-chain pixel entity
+with a class, seed hash, and mining power.
+</p>
+
+<p>
+Buying V0ID through the canonical Uniswap v4 pool automatically
+mints V0IDLINGS to your wallet. Selling burns them.
+Transfers move the paired V0IDLINGS together with the token.
+</p>
+
+<p>
+On top of the token + NFT layer, V0ID introduces a self-contained
+mining economy. Stake your V0IDLINGS to earn ongoing V0ID emissions.
+Large buys gain access to the motherlode jackpot.
+</p>
+
+</div>
+
+<!-- TOKENOMICS -->
+
+<div class="wp-section">
+
+<h2>2. Tokenomics</h2>
+
+<div class="tokenomics">
+
+<div class="token-row">
+<span>Token</span>
+<span>V0ID · 18 decimals</span>
+</div>
+
+<div class="token-row">
+<span>Initial supply</span>
+<span>10,000 V0ID</span>
+</div>
+
+<div class="token-row">
+<span>Day-1 emission</span>
+<span>1,000 V0ID</span>
+</div>
+
+<div class="token-row">
+<span>Daily decay</span>
+<span>-1% / day</span>
+</div>
+
+<div class="token-row">
+<span>Emission split</span>
+<span>80% stakers · 20% motherlode</span>
+</div>
+
+<div class="token-row">
+<span>Buy / Sell tax</span>
+<span>1% buy · 1% sell</span>
+</div>
+
+<div class="token-row">
+<span>Claim tax</span>
+<span>10% redistributed</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- NFT -->
+
+<div class="wp-section">
+
+<h2>3. V0IDLINGS — the embedded NFT</h2>
+
+<p>
+V0IDLINGS are not a separate ERC-721 collection.
+Every whole V0ID automatically owns one V0IDLING.
+When V0ID moves, V0IDLINGS move.
+When V0ID burns, V0IDLINGS burn.
+</p>
+
+<p>
+Each V0IDLING has:
+</p>
+
+<ul class="wp-list">
+<li>Class — Mortal, Hero, Titan, God</li>
+<li>Hash — determines Mining Power</li>
+<li>Eyes — glow, visor, goggles</li>
+<li>Crown — halo, antenna, cap</li>
+<li>Tool — pickaxe, drill, gem cluster</li>
+<li>Background — neon color variants</li>
+</ul>
+
+</div>
+
+<!-- STAKING -->
+
+<div class="wp-section">
+
+<h2>4. Staking and mining rewards</h2>
+
+<p>
+Stake a V0IDLING and begin earning V0ID emissions.
+Your reward share is proportional to Mining Power relative
+to all staked V0IDLINGS.
+</p>
+
+<p>
+Rewards accrue continuously.
+The dashboard updates pending rewards live in real time.
+</p>
+
+<div class="note">
+CLAIM takes a 10% refined-ore tax redistributed
+to remaining stakers.
+</div>
+
+</div>
+
+<!-- LOTTERY -->
+
+<div class="wp-section">
+
+<h2>5. The motherlode lottery</h2>
+
+<p>
+Every qualifying buy ≥ 0.1 BASE receives a chance
+to hit the motherlode jackpot.
+</p>
+
+<div class="chance-box">
+
+<div class="chance-row">
+<span>0.1 BASE buy</span>
+<span>0.16%</span>
+</div>
+
+<div class="chance-row">
+<span>0.5 BASE buy</span>
+<span>0.53%</span>
+</div>
+
+<div class="chance-row">
+<span>1 BASE buy</span>
+<span>1.00%</span>
+</div>
+
+</div>
+
+<p>
+On a hit, the motherlode pool splits 50 / 50:
+</p>
+
+<ul class="wp-list">
+<li>50% → buyer</li>
+<li>50% → random staker</li>
+</ul>
+
+</div>
+
+<!-- FAIRNESS -->
+
+<div class="wp-section">
+
+<h2>6. Why V0ID is fair</h2>
+
+<ul class="wp-list">
+
+<li>No validator front-running</li>
+
+<li>No whale lottery dominance</li>
+
+<li>No flash-loan jackpot capture</li>
+
+<li>Routing-agnostic ticket attribution</li>
+
+<li>Protocol-pinned canonical pool</li>
+
+<li>All metadata fully on-chain</li>
+
+</ul>
+
+</div>
+
+<!-- PARTICIPATE -->
+
+<div class="wp-section">
+
+<h2>7. How to participate</h2>
+
+<ol class="steps">
+
+<li>
+Connect wallet
+</li>
+
+<li>
+Buy V0ID through the canonical pool
+</li>
+
+<li>
+Wait one block for V0IDLING reveal
+</li>
+
+<li>
+Stake to begin mining emissions
+</li>
+
+<li>
+Claim or unstake anytime
+</li>
+
+</ol>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="wp-footer">
+
+V0ID is experimental software running on public blockchains.
+Read contracts carefully before deploying capital.
+
+<br><br>
+
+Whitepaper version 1.0 · 2026
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+/* WHITEPAPER */
+
+.hidden{
+display:none;
+}
+
+.whitepaper{
+padding:40px;
+}
+
+.wp-title{
+font-size:82px;
+font-family:'Orbitron';
+letter-spacing:6px;
+margin-top:10px;
+margin-bottom:30px;
+color:var(--yellow);
+}
+
+.wp-hero{
+font-size:32px;
+line-height:1.7;
+max-width:1100px;
+color:#d7d7d7;
+}
+
+.wp-divider{
+border:none;
+border-top:1px solid #171717;
+margin:50px 0;
+}
+
+.wp-section{
+margin-bottom:70px;
+}
+
+.wp-section h2{
+font-size:42px;
+margin-bottom:30px;
+color:var(--yellow);
+font-family:'Orbitron';
+letter-spacing:2px;
+}
+
+.wp-section p{
+font-size:26px;
+line-height:2;
+margin-bottom:30px;
+color:#d2d2d2;
+}
+
+.wp-list{
+padding-left:30px;
+}
+
+.wp-list li{
+font-size:25px;
+line-height:2;
+margin-bottom:10px;
+}
+
+.tokenomics{
+border:1px solid #151515;
+border-radius:16px;
+overflow:hidden;
+}
+
+.token-row{
+display:flex;
+justify-content:space-between;
+padding:22px 26px;
+border-bottom:1px solid #101010;
+font-size:23px;
+}
+
+.token-row:last-child{
+border-bottom:none;
+}
+
+.note{
+border:1px solid #1b1b1b;
+padding:24px;
+border-radius:16px;
+font-size:23px;
+line-height:1.8;
+background:#090909;
+color:var(--green);
+}
+
+.chance-box{
+border:1px solid #181818;
+border-radius:16px;
+overflow:hidden;
+margin:30px 0;
+}
+
+.chance-row{
+display:flex;
+justify-content:space-between;
+padding:22px 24px;
+border-bottom:1px solid #101010;
+font-size:24px;
+}
+
+.chance-row:last-child{
+border-bottom:none;
+}
+
+.steps{
+padding-left:35px;
+}
+
+.steps li{
+font-size:28px;
+line-height:2;
+margin-bottom:18px;
+}
+
+.wp-footer{
+padding-top:40px;
+border-top:1px solid #151515;
+font-size:22px;
+line-height:2;
+color:#7d7d7d;
+text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.whitepaper{
+padding:24px;
+}
+
+.wp-title{
+font-size:52px;
+}
+
+.wp-hero{
+font-size:21px;
+}
+
+.wp-section h2{
+font-size:28px;
+}
+
+.wp-section p,
+.wp-list li,
+.token-row,
+.note,
+.chance-row,
+.steps li,
+.wp-footer{
+font-size:17px;
+}
+
+}
+
+</style>
+
+<script>
+
+/* NAVIGATION */
+
+const dashboardBtn = document.querySelector('#dashboardBtn');
+const whitepaperBtn = document.querySelector('#whitepaperBtn');
+
+const dashboardPage = document.querySelector('#dashboardPage');
+const whitepaperPage = document.querySelector('#whitepaperPage');
+
+whitepaperBtn.onclick = () => {
+
+dashboardPage.classList.add('hidden');
+whitepaperPage.classList.remove('hidden');
+
+dashboardBtn.classList.remove('active');
+whitepaperBtn.classList.add('active');
+
+};
+
+dashboardBtn.onclick = () => {
+
+whitepaperPage.classList.add('hidden');
+dashboardPage.classList.remove('hidden');
+
+whitepaperBtn.classList.remove('active');
+dashboardBtn.classList.add('active');
+
+};
+
+</script>
 
 </body>
 </html>
