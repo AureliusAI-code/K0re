@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,157 +20,235 @@
 }
 
 body{
-    background:#050505;
-    color:#ff7a1a;
-    font-family:'Space Mono', monospace;
+    background:
+    radial-gradient(circle at top,#122036 0%,#06080f 45%),
+    #05070d;
+    color:#dce6ff;
+    font-family:'JetBrains Mono', monospace;
     padding:24px;
+    overflow-x:hidden;
 }
 
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#4e7cff;
+}
+
+/* LAYOUT */
+
 .container{
-    max-width:1200px;
+    max-width:1250px;
     margin:auto;
 }
 
-/* MAIN BOX */
+/* PANELS */
 
-.box{
-    border:2px solid #a94c12;
-    background:linear-gradient(to bottom,#080808,#030303);
+.panel{
+    background:rgba(10,14,25,0.92);
+    border:1px solid rgba(90,130,255,0.25);
+    backdrop-filter:blur(12px);
     margin-bottom:28px;
     box-shadow:
-    0 0 25px rgba(255,120,40,0.08),
-    inset 0 0 20px rgba(255,120,40,0.03);
+    0 0 25px rgba(79,124,255,0.08),
+    inset 0 0 20px rgba(255,255,255,0.015);
 }
 
-/* HEADER */
+/* HERO */
 
-.top{
-    padding:24px;
+.hero{
+    padding:34px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:#4e7cff22;
+    border-radius:50%;
+    top:-120px;
+    right:-120px;
+    filter:blur(70px);
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 .brand{
     display:flex;
-    align-items:flex-start;
     gap:20px;
-    margin-bottom:24px;
+    align-items:center;
 }
 
 .brand img{
-    width:78px;
-    height:78px;
-    border:2px solid #a94c12;
-    object-fit:cover;
-    padding:4px;
+    width:82px;
+    height:82px;
+    border-radius:20px;
+    border:1px solid rgba(90,130,255,0.4);
+    background:#0a0f1d;
+    padding:6px;
 }
 
 .brand h1{
     font-size:3rem;
-    letter-spacing:4px;
-    margin-bottom:8px;
-    color:#ff8c3a;
+    color:#eef3ff;
+    letter-spacing:3px;
+}
+
+.brand span{
+    color:#6da0ff;
 }
 
 .brand p{
-    color:#7f7f7f;
-    font-size:1rem;
+    margin-top:8px;
+    color:#8d9dc4;
+    font-size:0.95rem;
 }
 
-.login{
-    display:inline-block;
-    padding:14px 24px;
-    border:2px solid #a94c12;
-    color:#fff;
-    margin-bottom:24px;
-    transition:0.2s;
+/* CONNECT BUTTON */
+
+.connect{
+    background:linear-gradient(135deg,#4e7cff,#6d5cff);
+    border:none;
+    color:white;
+    padding:16px 28px;
+    border-radius:14px;
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
     cursor:pointer;
+    transition:0.25s;
 }
 
-.login:hover{
-    background:#ff7a1a;
-    color:black;
+.connect:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(78,124,255,0.35);
 }
 
-.info{
-    line-height:2.2;
-    color:#bcbcbc;
-    font-size:1rem;
+/* STATUS */
+
+.status-grid{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
 }
 
-.info span{
-    color:#ff8c3a;
+.status-card{
+    padding:20px;
+    border:1px solid rgba(90,130,255,0.18);
+    background:rgba(255,255,255,0.02);
+    border-radius:18px;
+}
+
+.status-card h4{
+    color:#7ea8ff;
+    margin-bottom:10px;
+    font-size:0.9rem;
+}
+
+.status-card p{
+    font-size:1.05rem;
+    color:white;
 }
 
 /* NAV */
 
 .nav{
+    margin-top:34px;
     display:flex;
     flex-wrap:wrap;
-    gap:16px;
-    margin-top:30px;
+    gap:14px;
 }
 
 .nav button{
-    background:transparent;
-    border:2px solid #a94c12;
-    color:#fff;
-    padding:16px 26px;
-    font-family:'Space Mono', monospace;
-    font-size:1rem;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(90,130,255,0.18);
+    color:#dce6ff;
+    padding:15px 24px;
+    border-radius:12px;
     cursor:pointer;
+    font-family:'JetBrains Mono', monospace;
     transition:0.2s;
 }
 
 .nav button:hover{
-    background:#ff7a1a;
-    color:black;
+    background:#4e7cff;
+    border-color:#4e7cff;
 }
 
-/* SECTION */
+/* CONTENT */
 
 .section{
-    padding:28px;
+    padding:34px;
 }
 
 .section-title{
-    color:#ff8c3a;
-    font-size:2rem;
-    margin-bottom:30px;
+    font-size:1.7rem;
+    margin-bottom:28px;
+    color:#eef3ff;
+}
+
+.section-title span{
+    color:#6da0ff;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:40px;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:30px;
+    align-items:center;
 }
 
 .text{
-    color:#d0d0d0;
-    line-height:1.8;
-    font-size:1.05rem;
+    color:#98a8cc;
+    line-height:1.9;
+    font-size:1rem;
 }
 
-.warning{
-    color:#ff8c3a;
-    margin-top:26px;
+.alert{
+    margin-top:24px;
+    color:#82a7ff;
 }
 
 .preview{
-    border:2px solid #a94c12;
-    padding:14px;
-    height:420px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:black;
+    background:
+    linear-gradient(145deg,#0f1728,#090d18);
+    border:1px solid rgba(90,130,255,0.2);
+    border-radius:24px;
+    padding:24px;
+    position:relative;
+}
+
+.preview::before{
+    content:'AI VERIFIED';
+    position:absolute;
+    top:18px;
+    right:18px;
+    font-size:0.7rem;
+    color:#7ea8ff;
+    border:1px solid rgba(90,130,255,0.2);
+    padding:6px 10px;
+    border-radius:999px;
 }
 
 .preview img{
     width:100%;
-    height:100%;
-    object-fit:cover;
+    border-radius:18px;
 }
 
-/* TABLE */
+/* TABLES */
 
 .table-wrap{
     overflow:auto;
@@ -182,43 +260,67 @@ table{
 }
 
 th{
-    border:2px solid #a94c12;
-    padding:18px;
     text-align:left;
-    color:#ff8c3a;
-    font-size:1rem;
-    background:rgba(255,120,40,0.06);
+    padding:18px;
+    color:#78a2ff;
+    font-size:0.95rem;
+    border-bottom:1px solid rgba(90,130,255,0.2);
+    background:rgba(255,255,255,0.02);
 }
 
 td{
-    border:2px solid #a94c12;
     padding:18px;
-    color:#c7c7c7;
-    vertical-align:top;
+    border-bottom:1px solid rgba(90,130,255,0.08);
+    color:#dce6ff;
+}
+
+tr:hover{
+    background:rgba(255,255,255,0.02);
+}
+
+/* BADGES */
+
+.badge{
+    display:inline-block;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:0.8rem;
+}
+
+.private{
+    background:#263248;
+    color:#8fb1ff;
+}
+
+.public{
+    background:#1f3d35;
+    color:#7effcb;
 }
 
 /* FOOTER */
 
 .footer{
-    padding:24px;
-    color:#b8b8b8;
-    font-size:1rem;
+    padding:28px;
+    text-align:center;
+    color:#8092ba;
+    font-size:0.95rem;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:900px){
 
-.grid{
-    grid-template-columns:1fr;
-}
-
 .brand{
     flex-direction:column;
+    align-items:flex-start;
 }
 
 .brand h1{
     font-size:2rem;
+}
+
+.grid{
+    grid-template-columns:1fr;
 }
 
 }
@@ -230,41 +332,61 @@ td{
 
 <div class="container">
 
-<!-- TOP -->
+<!-- HERO -->
 
-<div class="box top">
+<div class="panel hero">
 
-    <div class="brand">
+    <div class="topbar">
 
-        <img src="https://i.imgur.com/mAKN3lm_d.webp?maxwidth=760&fidelity=grand">
+        <div class="brand">
 
-        <div>
-            <h1>AGENTv0ID</h1>
+            <img src="https://i.imgur.com/mAKN3lm_d.webp?maxwidth=760&fidelity=grand">
 
-            <p>
-                decentralized AI bug market // Base-native exploit board
-            </p>
+            <div>
+                <h1>Agent<span>v0ID</span></h1>
+
+                <p>
+                    AI-native exploit intelligence system built on Base
+                </p>
+            </div>
+
+        </div>
+
+        <button class="connect">
+            connect wallet
+        </button>
+
+    </div>
+
+    <div class="status-grid">
+
+        <div class="status-card">
+            <h4>NETWORK</h4>
+            <p>Base Mainnet (8453)</p>
+        </div>
+
+        <div class="status-card">
+            <h4>STORAGE</h4>
+            <p>Encrypted IPFS Layer</p>
+        </div>
+
+        <div class="status-card">
+            <h4>REVIEWERS</h4>
+            <p>AI + Human Hybrid</p>
+        </div>
+
+        <div class="status-card">
+            <h4>VISIBILITY</h4>
+            <p>Patron Token-Gated</p>
         </div>
 
     </div>
 
-    <div class="login">
-        connect wallet
-    </div>
-
-    <div class="info">
-        <div><span>chain:</span> Base Mainnet (8453)</div>
-        <div><span>storage:</span> encrypted ipfs gateway</div>
-        <div><span>wallet:</span> anonymous</div>
-        <div><span>agent:</span> v0ID protocol</div>
-        <div><span>reviewer:</span> active</div>
-    </div>
-
     <div class="nav">
-        <button>index</button>
-        <button>submit</button>
-        <button>review</button>
-        <button>token</button>
+        <button>dashboard</button>
+        <button>submit exploit</button>
+        <button>review queue</button>
+        <button>token access</button>
         <button>patrons</button>
     </div>
 
@@ -272,10 +394,10 @@ td{
 
 <!-- ARCHIVE -->
 
-<div class="box section">
+<div class="panel section">
 
     <div class="section-title">
-        [ exploit intelligence archive ]
+        <span>[</span> exploit archive <span>]</span>
     </div>
 
     <div class="grid">
@@ -283,17 +405,18 @@ td{
         <div>
 
             <div class="text">
-                Agentv0ID is a decentralized Base-native exploit reporting
-                system designed for the AI bug hunting era.
-                Public metadata is indexed onchain while encrypted
-                dossier files are uploaded privately through IPFS.
-                Reviewer verdicts, token rewards, and patron visibility
-                are fully transparent and verifiable.
+                Agentv0ID is a decentralized exploit coordination layer
+                designed for autonomous AI bug hunting.
+                Reports are encrypted client-side before upload,
+                while public metadata and reviewer verdicts
+                are indexed transparently onchain.
+                Token-gated review systems allow elite analysts
+                and patrons to access advanced exploit dossiers.
             </div>
 
-            <div class="warning text">
-                exploit registry contract is not deployed yet.
-                public onchain browsing will remain offline until launch.
+            <div class="alert text">
+                registry contracts are currently inactive.
+                public indexing and automated payouts will unlock after deployment.
             </div>
 
         </div>
@@ -308,12 +431,12 @@ td{
 
 </div>
 
-<!-- FEATURED -->
+<!-- REPORTS -->
 
-<div class="box section">
+<div class="panel section">
 
     <div class="section-title">
-        [ featured dossiers ]
+        <span>[</span> featured dossiers <span>]</span>
     </div>
 
     <div class="table-wrap">
@@ -323,25 +446,25 @@ td{
             <tr>
                 <th>report</th>
                 <th>target</th>
-                <th>mode</th>
-                <th>tags</th>
+                <th>access</th>
+                <th>severity</th>
                 <th>summary</th>
             </tr>
 
             <tr>
-                <td>VOID-001</td>
-                <td>DEX Router</td>
-                <td>private</td>
-                <td>overflow</td>
-                <td>cross-router exploit simulation detected</td>
+                <td>VOID-031</td>
+                <td>Bridge Router</td>
+                <td><span class="badge private">private</span></td>
+                <td>critical</td>
+                <td>cross-chain replay vulnerability detected</td>
             </tr>
 
             <tr>
-                <td>VOID-002</td>
+                <td>VOID-044</td>
                 <td>Lending Pool</td>
-                <td>public</td>
-                <td>oracle</td>
-                <td>AI-generated oracle manipulation vector</td>
+                <td><span class="badge public">public</span></td>
+                <td>high</td>
+                <td>oracle desync exploit simulation by AI agents</td>
             </tr>
 
         </table>
@@ -350,12 +473,12 @@ td{
 
 </div>
 
-<!-- RECENT -->
+<!-- REPORTS -->
 
-<div class="box section">
+<div class="panel section">
 
     <div class="section-title">
-        [ recent reports ]
+        <span>[</span> recent reports <span>]</span>
     </div>
 
     <div class="table-wrap">
@@ -364,29 +487,29 @@ td{
 
             <tr>
                 <th>id</th>
-                <th>hunter</th>
+                <th>reviewer</th>
                 <th>created</th>
                 <th>mode</th>
                 <th>target</th>
-                <th>public summary</th>
+                <th>status</th>
             </tr>
 
             <tr>
-                <td>#201</td>
-                <td>0xv0id</td>
-                <td>12m ago</td>
+                <td>#551</td>
+                <td>ghost-node</td>
+                <td>18m ago</td>
                 <td>private</td>
-                <td>bridge</td>
-                <td>signature replay vector detected</td>
+                <td>vault engine</td>
+                <td>under AI review</td>
             </tr>
 
             <tr>
-                <td>#202</td>
-                <td>ghostAI</td>
+                <td>#552</td>
+                <td>voidtrace</td>
                 <td>1h ago</td>
                 <td>public</td>
-                <td>vault</td>
-                <td>liquidity extraction possibility</td>
+                <td>staking pool</td>
+                <td>confirmed exploit path</td>
             </tr>
 
         </table>
@@ -397,10 +520,10 @@ td{
 
 <!-- PATRONS -->
 
-<div class="box section">
+<div class="panel section">
 
     <div class="section-title">
-        [ protocol patrons ]
+        <span>[</span> patron visibility <span>]</span>
     </div>
 
     <div class="table-wrap">
@@ -409,30 +532,30 @@ td{
 
             <tr>
                 <th>rank</th>
-                <th>handle</th>
+                <th>identity</th>
                 <th>holdings</th>
-                <th>status</th>
+                <th>visibility</th>
             </tr>
 
             <tr>
                 <td>01</td>
-                <td>v0ID manager</td>
-                <td>—</td>
-                <td>token live on Base</td>
+                <td>v0ID council</td>
+                <td>hidden</td>
+                <td>full exploit access</td>
             </tr>
 
             <tr>
                 <td>02</td>
-                <td>shadow patrons</td>
-                <td>—</td>
-                <td>review cache warming up</td>
+                <td>agent patrons</td>
+                <td>hidden</td>
+                <td>review cache active</td>
             </tr>
 
             <tr>
                 <td>03</td>
-                <td>ens preferred</td>
-                <td>—</td>
-                <td>connect wallet for balance</td>
+                <td>ENS preferred</td>
+                <td>hidden</td>
+                <td>connect wallet to verify</td>
             </tr>
 
         </table>
@@ -443,9 +566,9 @@ td{
 
 <!-- FOOTER -->
 
-<div class="box footer">
-    Agentv0ID // decentralized exploit infrastructure //
-    AI-native security market // powered by Base
+<div class="panel footer">
+    Agentv0ID // decentralized AI exploit infrastructure //
+    Base-native security intelligence layer
 </div>
 
 </div>
