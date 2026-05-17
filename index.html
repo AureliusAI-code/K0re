@@ -4,381 +4,221 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>V0ID Mining</title>
+<title>Agentv0ID</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
---bg:#040404;
---panel:#090909;
---border:#151515;
---soft:#777;
---green:#00ffbf;
---pink:#ff4fa3;
---yellow:#ffe66d;
---cyan:#4de3ff;
-}
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-background:var(--bg);
-font-family:'Space Mono',monospace;
-color:white;
-padding:30px;
-overflow-x:hidden;
+    background:#050505;
+    color:#ff7a1a;
+    font-family:'Space Mono', monospace;
+    padding:24px;
 }
 
-body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at top right,#00ffbf15,transparent 30%),
-radial-gradient(circle at bottom left,#ff009920,transparent 30%);
-pointer-events:none;
+.container{
+    max-width:1200px;
+    margin:auto;
 }
 
-.wrapper{
-max-width:1450px;
-margin:auto;
+/* MAIN BOX */
+
+.box{
+    border:2px solid #a94c12;
+    background:linear-gradient(to bottom,#080808,#030303);
+    margin-bottom:28px;
+    box-shadow:
+    0 0 25px rgba(255,120,40,0.08),
+    inset 0 0 20px rgba(255,120,40,0.03);
 }
 
 /* HEADER */
 
-.header{
-background:var(--panel);
-border:1px solid var(--border);
-border-radius:18px;
-padding:22px 28px;
-margin-bottom:24px;
-}
-
-.header-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.top{
+    padding:24px;
 }
 
 .brand{
-display:flex;
-align-items:center;
-gap:18px;
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    margin-bottom:24px;
 }
 
 .brand img{
-width:58px;
-height:58px;
-border-radius:14px;
-object-fit:cover;
+    width:78px;
+    height:78px;
+    border:2px solid #a94c12;
+    object-fit:cover;
+    padding:4px;
 }
 
 .brand h1{
-font-family:'Orbitron';
-font-size:28px;
-letter-spacing:5px;
-color:var(--green);
+    font-size:3rem;
+    letter-spacing:4px;
+    margin-bottom:8px;
+    color:#ff8c3a;
 }
 
-.wallet-btn{
-height:58px;
-padding:0 34px;
-border-radius:12px;
-border:1px solid var(--green);
-background:transparent;
-color:var(--green);
-font-family:'Orbitron';
-letter-spacing:3px;
-cursor:pointer;
-font-size:14px;
-transition:.2s;
+.brand p{
+    color:#7f7f7f;
+    font-size:1rem;
 }
 
-.wallet-btn:hover{
-background:var(--green);
-color:black;
+.login{
+    display:inline-block;
+    padding:14px 24px;
+    border:2px solid #a94c12;
+    color:#fff;
+    margin-bottom:24px;
+    transition:0.2s;
+    cursor:pointer;
 }
+
+.login:hover{
+    background:#ff7a1a;
+    color:black;
+}
+
+.info{
+    line-height:2.2;
+    color:#bcbcbc;
+    font-size:1rem;
+}
+
+.info span{
+    color:#ff8c3a;
+}
+
+/* NAV */
 
 .nav{
-display:flex;
-gap:42px;
-margin-top:24px;
-padding-top:18px;
-border-top:1px solid #111;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:30px;
 }
 
-.nav a{
-text-decoration:none;
-color:#7d7d7d;
-font-size:13px;
-letter-spacing:3px;
-padding-bottom:12px;
+.nav button{
+    background:transparent;
+    border:2px solid #a94c12;
+    color:#fff;
+    padding:16px 26px;
+    font-family:'Space Mono', monospace;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.2s;
 }
 
-.nav a.active{
-color:var(--green);
-border-bottom:2px solid var(--green);
+.nav button:hover{
+    background:#ff7a1a;
+    color:black;
 }
 
-/* GRID */
+/* SECTION */
+
+.section{
+    padding:28px;
+}
+
+.section-title{
+    color:#ff8c3a;
+    font-size:2rem;
+    margin-bottom:30px;
+}
 
 .grid{
-display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:22px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
 }
 
-.column{
-display:flex;
-flex-direction:column;
-gap:22px;
+.text{
+    color:#d0d0d0;
+    line-height:1.8;
+    font-size:1.05rem;
 }
 
-/* PANELS */
-
-.panel{
-background:var(--panel);
-border:1px solid var(--border);
-border-radius:18px;
-padding:22px;
-position:relative;
-overflow:hidden;
+.warning{
+    color:#ff8c3a;
+    margin-top:26px;
 }
 
-.panel::before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(
-180deg,
-transparent,
-rgba(255,255,255,.015),
-transparent
-);
-pointer-events:none;
+.preview{
+    border:2px solid #a94c12;
+    padding:14px;
+    height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:black;
 }
 
-.panel-title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-font-size:13px;
-letter-spacing:4px;
-color:#8d8d8d;
+.preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 /* TABLE */
 
-.table{
-border:1px solid #161616;
-border-radius:14px;
-overflow:hidden;
+.table-wrap{
+    overflow:auto;
 }
 
-.table-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 20px;
-border-bottom:1px solid #101010;
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
-.table-row:last-child{
-border-bottom:none;
+th{
+    border:2px solid #a94c12;
+    padding:18px;
+    text-align:left;
+    color:#ff8c3a;
+    font-size:1rem;
+    background:rgba(255,120,40,0.06);
 }
 
-.big{
-font-size:58px;
-font-weight:bold;
-line-height:1;
+td{
+    border:2px solid #a94c12;
+    padding:18px;
+    color:#c7c7c7;
+    vertical-align:top;
 }
 
-.green{
-color:var(--green);
+/* FOOTER */
+
+.footer{
+    padding:24px;
+    color:#b8b8b8;
+    font-size:1rem;
 }
 
-.pink{
-color:var(--pink);
-}
+/* RESPONSIVE */
 
-.yellow{
-color:var(--yellow);
-}
-
-.soft{
-color:var(--soft);
-}
-
-/* TRADE */
-
-.trade-card{
-border:1px solid #161616;
-border-radius:16px;
-padding:20px;
-margin-top:18px;
-}
-
-.trade-head{
-display:flex;
-justify-content:space-between;
-margin-bottom:18px;
-font-size:14px;
-}
-
-.trade-input{
-position:relative;
-}
-
-.trade-input input{
-width:100%;
-height:74px;
-background:#050505;
-border:1px solid #191919;
-border-radius:12px;
-padding:0 20px;
-font-size:30px;
-color:white;
-font-family:'Space Mono';
-outline:none;
-}
-
-.max{
-position:absolute;
-right:12px;
-top:12px;
-height:48px;
-padding:0 16px;
-background:transparent;
-border:1px solid var(--green);
-color:var(--green);
-border-radius:10px;
-cursor:pointer;
-font-family:'Orbitron';
-}
-
-.trade-meta{
-margin-top:18px;
-line-height:1.8;
-font-size:14px;
-}
-
-.action-btn{
-width:100%;
-height:60px;
-margin-top:20px;
-background:transparent;
-border:1px solid var(--green);
-border-radius:12px;
-color:var(--green);
-font-family:'Orbitron';
-font-size:16px;
-letter-spacing:4px;
-cursor:pointer;
-transition:.2s;
-}
-
-.action-btn:hover{
-background:var(--green);
-color:black;
-}
-
-/* STATS */
-
-.stats-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-border:1px solid #161616;
-border-radius:14px;
-overflow:hidden;
-}
-
-.stats-grid div{
-padding:22px;
-border-right:1px solid #111;
-border-bottom:1px solid #111;
-}
-
-.stats-grid div:nth-child(2n){
-border-right:none;
-}
-
-.stats-grid h2{
-font-size:42px;
-margin-bottom:10px;
-}
-
-/* LIST */
-
-.list{
-display:flex;
-flex-direction:column;
-gap:2px;
-}
-
-.list-item{
-display:flex;
-justify-content:space-between;
-padding:15px 0;
-border-bottom:1px solid #101010;
-}
-
-.list-item:last-child{
-border-bottom:none;
-}
-
-.small{
-font-size:13px;
-}
-
-.contracts .list-item{
-font-size:14px;
-}
-
-/* MOBILE */
-
-@media(max-width:1100px){
-
-body{
-padding:18px;
-}
+@media(max-width:900px){
 
 .grid{
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 }
 
-.header-top{
-flex-direction:column;
-align-items:flex-start;
-gap:20px;
+.brand{
+    flex-direction:column;
 }
 
-.wallet-btn{
-width:100%;
-}
-
-.nav{
-overflow:auto;
-gap:24px;
-}
-
-.big{
-font-size:42px;
-}
-
-.stats-grid{
-grid-template-columns:1fr;
-}
-
-.stats-grid div{
-border-right:none;
+.brand h1{
+    font-size:2rem;
 }
 
 }
@@ -388,838 +228,227 @@ border-right:none;
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
-<!-- HEADER -->
+<!-- TOP -->
 
-<div class="header">
+<div class="box top">
 
-<div class="header-top">
+    <div class="brand">
 
-<div class="brand">
-<img src="https://i.imgur.com/8WeRZYx.jpeg">
-<h1>V0ID MINING</h1>
-</div>
-
-<button class="wallet-btn">
-CONNECT WALLET →
-</button>
-
-</div>
-
-<div class="nav">
-<a id="dashboardBtn" class="active" href="#">DASHBOARD</a>
-<a id="whitepaperBtn" href="#">WHITEPAPER</a>
-<a href="https://x.com/v0idv4art" target="_blank">
-X ↗
-</a>
-</div>
-
-</div>
-
-<!-- DASHBOARD PAGE -->
-
-<div id="dashboardPage">
-
-<div class="grid">
-
-<!-- LEFT -->
-
-<div class="column">
-
-<!-- MOTHERMODE -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— ⚡ MOTHERMODE</span>
-<span class="green">LIVE</span>
-</div>
-
-<div class="table">
-
-<div class="table-row">
-<span>Pool (live est.)</span>
-<div class="big pink">238,84</div>
-</div>
-
-<div class="table-row">
-<span>Odds (0.1 BASE → 1 BASE+)</span>
-<span class="yellow">0.16% → 1.00%</span>
-</div>
-
-<div class="table-row">
-<span>Pending rolls</span>
-<span class="soft">● ● ● ● ● ● ● ● ●</span>
-</div>
-
-<div class="table-row">
-<span>Min buy</span>
-<span>0.1 BASE</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- EMISSIONS -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— ◇ EMISSIONS</span>
-</div>
-
-<div class="table">
-
-<div class="table-row">
-<span>Today's rate</span>
-<span class="yellow">980 V0ID/day</span>
-</div>
-
-<div class="table-row">
-<span>Decay</span>
-<span>-1% / day · half-life 69d</span>
-</div>
-
-<div class="table-row">
-<span>Split</span>
-<span>80% stakers · 20% mothermode</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- TRADE -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— ↔ TRADE · V0ID / BASE</span>
-<span class="soft">LIVE: 1 BASE = 52 V0ID</span>
-</div>
-
-<!-- BUY -->
-
-<div class="trade-card">
-
-<div class="trade-head">
-<span>BUY V0ID</span>
-<span>slippage: 2%</span>
-</div>
-
-<div class="trade-input">
-<input type="text" value="0.1">
-<button class="max">MAX</button>
-</div>
-
-<div class="trade-meta">
-Receive ≈ <span class="yellow">5,1386 V0ID</span><br>
-<span class="soft">
-Balance: 0 BASE · 1% buy tax
-</span>
-</div>
-
-<button class="action-btn">
-BUY
-</button>
-
-</div>
-
-<!-- SELL -->
-
-<div class="trade-card">
-
-<div class="trade-head">
-<span>SELL V0ID</span>
-<span>slippage: 2%</span>
-</div>
-
-<div class="trade-input">
-<input type="text" placeholder="V0ID amount">
-<button class="max">MAX</button>
-</div>
-
-<div class="trade-meta">
-Receive ≈ <span class="yellow">0 BASE</span><br>
-<span class="soft">
-1% sell tax → buyback bucket
-</span>
-</div>
-
-<button class="action-btn">
-APPROVE + SELL
-</button>
-
-</div>
-
-</div>
-
-<!-- TOP STAKERS -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— 🏔 TOP STAKERS</span>
-<span class="soft">43 ACTIVE</span>
-</div>
-
-<div class="list">
-
-<div class="list-item">
-<span>0x0ea1...e574</span>
-<span class="yellow">18.111</span>
-</div>
-
-<div class="list-item">
-<span>0x15e9...59c9</span>
-<span class="yellow">13.014</span>
-</div>
-
-<div class="list-item">
-<span>0x71f0...3F4B</span>
-<span class="yellow">12.992</span>
-</div>
-
-<div class="list-item">
-<span>0x35F5...bE33</span>
-<span class="yellow">8.756</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="column">
-
-<!-- MY MINING -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— ⛏ MY MINING</span>
-</div>
-
-<div class="stats-grid">
-
-<div>
-<h2 class="yellow">576</h2>
-<p class="small">TOTAL STAKERS</p>
-</div>
-
-<div>
-<h2 class="yellow">768.067</h2>
-<p class="small">TOTAL MINING POWER</p>
-</div>
-
-<div>
-<h2 class="green">5.589</h2>
-<p class="small">V0ID STAKED</p>
-</div>
-
-<div>
-<h2 class="green">0</h2>
-<p class="small">PENDING V0ID</p>
-</div>
-
-<div>
-<h2 class="green">0/0</h2>
-<p class="small">STAKED / OWNED</p>
-</div>
-
-<div>
-<h2 class="green">0</h2>
-<p class="small">TOTAL CLAIMED</p>
-</div>
-
-</div>
-
-<div style="display:flex;gap:12px;margin-top:20px">
-
-<button class="action-btn">
-STAKE
-</button>
-
-<button class="action-btn">
-CLAIM
-</button>
-
-<button class="action-btn">
-UNSTAKE
-</button>
-
-</div>
-
-</div>
-
-<!-- RECENT HITS -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— ★ RECENT MOTHERMODE HITS</span>
-</div>
-
-<div class="list">
-
-<div class="list-item">
-<div>
-<div class="pink small">BUYER</div>
-<div>0x54F8...c828</div>
-</div>
-<div class="green">+39,88 V0ID</div>
-</div>
-
-<div class="list-item">
-<div>
-<div class="pink small">BUYER</div>
-<div>0xb479...4ad3</div>
-</div>
-<div class="green">+44,82 V0ID</div>
-</div>
-
-<div class="list-item">
-<div>
-<div class="pink small">BUYER</div>
-<div>0xe004...64C1</div>
-</div>
-<div class="green">+2,63 V0ID</div>
-</div>
-
-</div>
-
-</div>
-
-<!-- BUYBACK -->
-
-<div class="panel">
-
-<div class="panel-title">
-<span>— ✖ RECENT BUYBACK + BURNS</span>
-</div>
-
-<div class="list">
-
-<div class="list-item">
-<span>#25064686</span>
-<span class="pink">-0,06 V0ID</span>
-</div>
-
-<div class="list-item">
-<span>#25064681</span>
-<span class="pink">-0,05 V0ID</span>
-</div>
-
-<div class="list-item">
-<span>#25064666</span>
-<span class="pink">-0,02 V0ID</span>
-</div>
-
-<div class="list-item">
-<span>#25064660</span>
-<span class="pink">-0,06 V0ID</span>
-</div>
-
-</div>
-
-</div>
-
-<!-- CONTRACTS -->
-
-<div class="panel contracts">
-
-<div class="panel-title">
-<span>— ⛓ CONTRACTS · BASE MAINNET</span>
-</div>
-
-<div class="list">
-
-<div class="list-item">
-<span>V0ID Token</span>
-<span class="yellow">0x1f6102...</span>
-</div>
-
-<div class="list-item">
-<span>Uniswap v4 Hook</span>
-<span class="yellow">0x5c5f3...</span>
-</div>
-
-<div class="list-item">
-<span>V0ID Router</span>
-<span class="yellow">0x02075...</span>
-</div>
-
-<div class="list-item">
-<span>v4 PoolManager</span>
-<span class="yellow">0x00000...</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
+        <img src="https://i.imgur.com/mAKN3lm_d.webp?maxwidth=760&fidelity=grand">
 
-</div>
-
-</div>
- <!-- WHITEPAPER PAGE -->
-
-<section id="whitepaperPage" class="page hidden">
-
-<div class="panel whitepaper">
-
-<div class="panel-title">
-<span>WHITEPAPER · v1.0</span>
-</div>
+        <div>
+            <h1>AGENTv0ID</h1>
 
-<h1 class="wp-title">V0ID</h1>
+            <p>
+                decentralized AI bug market // Base-native exploit board
+            </p>
+        </div>
 
-<p class="wp-hero">
-A mineable store of value. Forge V0IDLINGS.
-Strike the motherlode. Burn your way to scarcity.
-</p>
+    </div>
 
-<hr class="wp-divider">
+    <div class="login">
+        connect wallet
+    </div>
 
-<!-- SECTION -->
+    <div class="info">
+        <div><span>chain:</span> Base Mainnet (8453)</div>
+        <div><span>storage:</span> encrypted ipfs gateway</div>
+        <div><span>wallet:</span> anonymous</div>
+        <div><span>agent:</span> v0ID protocol</div>
+        <div><span>reviewer:</span> active</div>
+    </div>
 
-<div class="wp-section">
+    <div class="nav">
+        <button>index</button>
+        <button>submit</button>
+        <button>review</button>
+        <button>token</button>
+        <button>patrons</button>
+    </div>
 
-<h2>1. What is V0ID</h2>
-
-<p>
-V0ID is a BASE-native token where every whole V0ID you hold
-is paired 1:1 with a V0IDLING — a fully on-chain pixel entity
-with a class, seed hash, and mining power.
-</p>
-
-<p>
-Buying V0ID through the canonical Uniswap v4 pool automatically
-mints V0IDLINGS to your wallet. Selling burns them.
-Transfers move the paired V0IDLINGS together with the token.
-</p>
-
-<p>
-On top of the token + NFT layer, V0ID introduces a self-contained
-mining economy. Stake your V0IDLINGS to earn ongoing V0ID emissions.
-Large buys gain access to the motherlode jackpot.
-</p>
-
 </div>
 
-<!-- TOKENOMICS -->
+<!-- ARCHIVE -->
 
-<div class="wp-section">
+<div class="box section">
 
-<h2>2. Tokenomics</h2>
+    <div class="section-title">
+        [ exploit intelligence archive ]
+    </div>
 
-<div class="tokenomics">
+    <div class="grid">
 
-<div class="token-row">
-<span>Token</span>
-<span>V0ID · 18 decimals</span>
-</div>
+        <div>
 
-<div class="token-row">
-<span>Initial supply</span>
-<span>10,000 V0ID</span>
-</div>
+            <div class="text">
+                Agentv0ID is a decentralized Base-native exploit reporting
+                system designed for the AI bug hunting era.
+                Public metadata is indexed onchain while encrypted
+                dossier files are uploaded privately through IPFS.
+                Reviewer verdicts, token rewards, and patron visibility
+                are fully transparent and verifiable.
+            </div>
 
-<div class="token-row">
-<span>Day-1 emission</span>
-<span>1,000 V0ID</span>
-</div>
+            <div class="warning text">
+                exploit registry contract is not deployed yet.
+                public onchain browsing will remain offline until launch.
+            </div>
 
-<div class="token-row">
-<span>Daily decay</span>
-<span>-1% / day</span>
-</div>
+        </div>
 
-<div class="token-row">
-<span>Emission split</span>
-<span>80% stakers · 20% motherlode</span>
-</div>
+        <div class="preview">
 
-<div class="token-row">
-<span>Buy / Sell tax</span>
-<span>1% buy · 1% sell</span>
-</div>
+            <img src="https://i.imgur.com/mAKN3lm_d.webp?maxwidth=760&fidelity=grand">
 
-<div class="token-row">
-<span>Claim tax</span>
-<span>10% redistributed</span>
-</div>
+        </div>
 
-</div>
+    </div>
 
 </div>
-
-<!-- NFT -->
 
-<div class="wp-section">
+<!-- FEATURED -->
 
-<h2>3. V0IDLINGS — the embedded NFT</h2>
+<div class="box section">
 
-<p>
-V0IDLINGS are not a separate ERC-721 collection.
-Every whole V0ID automatically owns one V0IDLING.
-When V0ID moves, V0IDLINGS move.
-When V0ID burns, V0IDLINGS burn.
-</p>
+    <div class="section-title">
+        [ featured dossiers ]
+    </div>
 
-<p>
-Each V0IDLING has:
-</p>
+    <div class="table-wrap">
 
-<ul class="wp-list">
-<li>Class — Mortal, Hero, Titan, God</li>
-<li>Hash — determines Mining Power</li>
-<li>Eyes — glow, visor, goggles</li>
-<li>Crown — halo, antenna, cap</li>
-<li>Tool — pickaxe, drill, gem cluster</li>
-<li>Background — neon color variants</li>
-</ul>
+        <table>
 
-</div>
-
-<!-- STAKING -->
-
-<div class="wp-section">
+            <tr>
+                <th>report</th>
+                <th>target</th>
+                <th>mode</th>
+                <th>tags</th>
+                <th>summary</th>
+            </tr>
 
-<h2>4. Staking and mining rewards</h2>
+            <tr>
+                <td>VOID-001</td>
+                <td>DEX Router</td>
+                <td>private</td>
+                <td>overflow</td>
+                <td>cross-router exploit simulation detected</td>
+            </tr>
 
-<p>
-Stake a V0IDLING and begin earning V0ID emissions.
-Your reward share is proportional to Mining Power relative
-to all staked V0IDLINGS.
-</p>
+            <tr>
+                <td>VOID-002</td>
+                <td>Lending Pool</td>
+                <td>public</td>
+                <td>oracle</td>
+                <td>AI-generated oracle manipulation vector</td>
+            </tr>
 
-<p>
-Rewards accrue continuously.
-The dashboard updates pending rewards live in real time.
-</p>
+        </table>
 
-<div class="note">
-CLAIM takes a 10% refined-ore tax redistributed
-to remaining stakers.
-</div>
+    </div>
 
 </div>
-
-<!-- LOTTERY -->
 
-<div class="wp-section">
+<!-- RECENT -->
 
-<h2>5. The motherlode lottery</h2>
+<div class="box section">
 
-<p>
-Every qualifying buy ≥ 0.1 BASE receives a chance
-to hit the motherlode jackpot.
-</p>
+    <div class="section-title">
+        [ recent reports ]
+    </div>
 
-<div class="chance-box">
+    <div class="table-wrap">
 
-<div class="chance-row">
-<span>0.1 BASE buy</span>
-<span>0.16%</span>
-</div>
+        <table>
 
-<div class="chance-row">
-<span>0.5 BASE buy</span>
-<span>0.53%</span>
-</div>
+            <tr>
+                <th>id</th>
+                <th>hunter</th>
+                <th>created</th>
+                <th>mode</th>
+                <th>target</th>
+                <th>public summary</th>
+            </tr>
 
-<div class="chance-row">
-<span>1 BASE buy</span>
-<span>1.00%</span>
-</div>
+            <tr>
+                <td>#201</td>
+                <td>0xv0id</td>
+                <td>12m ago</td>
+                <td>private</td>
+                <td>bridge</td>
+                <td>signature replay vector detected</td>
+            </tr>
 
-</div>
+            <tr>
+                <td>#202</td>
+                <td>ghostAI</td>
+                <td>1h ago</td>
+                <td>public</td>
+                <td>vault</td>
+                <td>liquidity extraction possibility</td>
+            </tr>
 
-<p>
-On a hit, the motherlode pool splits 50 / 50:
-</p>
+        </table>
 
-<ul class="wp-list">
-<li>50% → buyer</li>
-<li>50% → random staker</li>
-</ul>
+    </div>
 
 </div>
-
-<!-- FAIRNESS -->
-
-<div class="wp-section">
-
-<h2>6. Why V0ID is fair</h2>
-
-<ul class="wp-list">
-
-<li>No validator front-running</li>
 
-<li>No whale lottery dominance</li>
-
-<li>No flash-loan jackpot capture</li>
-
-<li>Routing-agnostic ticket attribution</li>
-
-<li>Protocol-pinned canonical pool</li>
-
-<li>All metadata fully on-chain</li>
-
-</ul>
-
-</div>
+<!-- PATRONS -->
 
-<!-- PARTICIPATE -->
+<div class="box section">
 
-<div class="wp-section">
+    <div class="section-title">
+        [ protocol patrons ]
+    </div>
 
-<h2>7. How to participate</h2>
+    <div class="table-wrap">
 
-<ol class="steps">
+        <table>
 
-<li>
-Connect wallet
-</li>
+            <tr>
+                <th>rank</th>
+                <th>handle</th>
+                <th>holdings</th>
+                <th>status</th>
+            </tr>
 
-<li>
-Buy V0ID through the canonical pool
-</li>
+            <tr>
+                <td>01</td>
+                <td>v0ID manager</td>
+                <td>—</td>
+                <td>token live on Base</td>
+            </tr>
 
-<li>
-Wait one block for V0IDLING reveal
-</li>
+            <tr>
+                <td>02</td>
+                <td>shadow patrons</td>
+                <td>—</td>
+                <td>review cache warming up</td>
+            </tr>
 
-<li>
-Stake to begin mining emissions
-</li>
+            <tr>
+                <td>03</td>
+                <td>ens preferred</td>
+                <td>—</td>
+                <td>connect wallet for balance</td>
+            </tr>
 
-<li>
-Claim or unstake anytime
-</li>
+        </table>
 
-</ol>
+    </div>
 
 </div>
 
 <!-- FOOTER -->
 
-<div class="wp-footer">
-
-V0ID is experimental software running on public blockchains.
-Read contracts carefully before deploying capital.
-
-<br><br>
-
-Whitepaper version 1.0 · 2026
-
+<div class="box footer">
+    Agentv0ID // decentralized exploit infrastructure //
+    AI-native security market // powered by Base
 </div>
 
 </div>
-
-</section>
-
-<style>
-
-/* WHITEPAPER */
-
-.hidden{
-display:none;
-}
-
-.whitepaper{
-padding:40px;
-}
-
-.wp-title{
-font-size:82px;
-font-family:'Orbitron';
-letter-spacing:6px;
-margin-top:10px;
-margin-bottom:30px;
-color:var(--yellow);
-}
-
-.wp-hero{
-font-size:32px;
-line-height:1.7;
-max-width:1100px;
-color:#d7d7d7;
-}
-
-.wp-divider{
-border:none;
-border-top:1px solid #171717;
-margin:50px 0;
-}
-
-.wp-section{
-margin-bottom:70px;
-}
-
-.wp-section h2{
-font-size:42px;
-margin-bottom:30px;
-color:var(--yellow);
-font-family:'Orbitron';
-letter-spacing:2px;
-}
-
-.wp-section p{
-font-size:26px;
-line-height:2;
-margin-bottom:30px;
-color:#d2d2d2;
-}
-
-.wp-list{
-padding-left:30px;
-}
-
-.wp-list li{
-font-size:25px;
-line-height:2;
-margin-bottom:10px;
-}
-
-.tokenomics{
-border:1px solid #151515;
-border-radius:16px;
-overflow:hidden;
-}
-
-.token-row{
-display:flex;
-justify-content:space-between;
-padding:22px 26px;
-border-bottom:1px solid #101010;
-font-size:23px;
-}
-
-.token-row:last-child{
-border-bottom:none;
-}
-
-.note{
-border:1px solid #1b1b1b;
-padding:24px;
-border-radius:16px;
-font-size:23px;
-line-height:1.8;
-background:#090909;
-color:var(--green);
-}
-
-.chance-box{
-border:1px solid #181818;
-border-radius:16px;
-overflow:hidden;
-margin:30px 0;
-}
-
-.chance-row{
-display:flex;
-justify-content:space-between;
-padding:22px 24px;
-border-bottom:1px solid #101010;
-font-size:24px;
-}
-
-.chance-row:last-child{
-border-bottom:none;
-}
-
-.steps{
-padding-left:35px;
-}
-
-.steps li{
-font-size:28px;
-line-height:2;
-margin-bottom:18px;
-}
-
-.wp-footer{
-padding-top:40px;
-border-top:1px solid #151515;
-font-size:22px;
-line-height:2;
-color:#7d7d7d;
-text-align:center;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.whitepaper{
-padding:24px;
-}
-
-.wp-title{
-font-size:52px;
-}
-
-.wp-hero{
-font-size:21px;
-}
-
-.wp-section h2{
-font-size:28px;
-}
-
-.wp-section p,
-.wp-list li,
-.token-row,
-.note,
-.chance-row,
-.steps li,
-.wp-footer{
-font-size:17px;
-}
-
-}
-
-</style>
-
-<script>
-
-/* NAVIGATION */
-
-const dashboardBtn = document.querySelector('#dashboardBtn');
-const whitepaperBtn = document.querySelector('#whitepaperBtn');
-
-const dashboardPage = document.querySelector('#dashboardPage');
-const whitepaperPage = document.querySelector('#whitepaperPage');
-
-whitepaperBtn.onclick = () => {
-
-dashboardPage.classList.add('hidden');
-whitepaperPage.classList.remove('hidden');
-
-dashboardBtn.classList.remove('active');
-whitepaperBtn.classList.add('active');
-
-};
-
-dashboardBtn.onclick = () => {
-
-whitepaperPage.classList.add('hidden');
-dashboardPage.classList.remove('hidden');
-
-whitepaperBtn.classList.remove('active');
-dashboardBtn.classList.add('active');
-
-};
-
-</script>
 
 </body>
 </html>
