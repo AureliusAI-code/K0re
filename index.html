@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,166 +20,109 @@
 }
 
 body{
-    background:
-    radial-gradient(circle at top,#122036 0%,#06080f 45%),
-    #05070d;
-    color:#dce6ff;
-    font-family:'JetBrains Mono', monospace;
-    padding:24px;
-    overflow-x:hidden;
+    background:#05070d;
+    color:#d9e6ff;
+    font-family:'IBM Plex Mono', monospace;
+    padding:14px;
 }
 
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#4e7cff;
-}
-
-/* LAYOUT */
+/* CONTAINER */
 
 .container{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
 }
 
-/* PANELS */
+/* PANEL */
 
 .panel{
-    background:rgba(10,14,25,0.92);
-    border:1px solid rgba(90,130,255,0.25);
-    backdrop-filter:blur(12px);
-    margin-bottom:28px;
+    border:1px solid #2b4f88;
+    background:#060912;
+    margin-bottom:18px;
     box-shadow:
-    0 0 25px rgba(79,124,255,0.08),
-    inset 0 0 20px rgba(255,255,255,0.015);
+    inset 0 0 20px rgba(78,124,255,0.03),
+    0 0 20px rgba(78,124,255,0.05);
 }
 
-/* HERO */
+/* TOP */
 
-.hero{
-    padding:34px;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:'';
-    position:absolute;
-    width:350px;
-    height:350px;
-    background:#4e7cff22;
-    border-radius:50%;
-    top:-120px;
-    right:-120px;
-    filter:blur(70px);
-}
-
-.topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:20px;
-    flex-wrap:wrap;
+.top{
+    padding:22px;
 }
 
 .brand{
     display:flex;
-    gap:20px;
-    align-items:center;
+    align-items:flex-start;
+    gap:18px;
+    margin-bottom:22px;
 }
 
 .brand img{
-    width:82px;
-    height:82px;
-    border-radius:20px;
-    border:1px solid rgba(90,130,255,0.4);
-    background:#0a0f1d;
-    padding:6px;
+    width:72px;
+    height:72px;
+    border:1px solid #355b99;
+    padding:4px;
+    background:#09101f;
 }
 
 .brand h1{
-    font-size:3rem;
-    color:#eef3ff;
+    font-size:2.5rem;
     letter-spacing:3px;
+    color:#edf4ff;
+    margin-bottom:6px;
 }
 
-.brand span{
-    color:#6da0ff;
+.brand h1 span{
+    color:#6ea0ff;
 }
 
 .brand p{
-    margin-top:8px;
-    color:#8d9dc4;
+    color:#7f93bc;
     font-size:0.95rem;
 }
 
-/* CONNECT BUTTON */
-
 .connect{
-    background:linear-gradient(135deg,#4e7cff,#6d5cff);
-    border:none;
-    color:white;
-    padding:16px 28px;
-    border-radius:14px;
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
+    display:inline-block;
+    padding:13px 22px;
+    border:1px solid #355b99;
+    color:#dbe7ff;
+    margin-bottom:22px;
     cursor:pointer;
-    transition:0.25s;
+    transition:0.2s;
 }
 
 .connect:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 30px rgba(78,124,255,0.35);
+    background:#4e7cff;
+    border-color:#4e7cff;
 }
 
-/* STATUS */
+/* INFO */
 
-.status-grid{
-    margin-top:34px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
+.info{
+    line-height:2;
+    color:#b5c6e7;
+    margin-bottom:24px;
 }
 
-.status-card{
-    padding:20px;
-    border:1px solid rgba(90,130,255,0.18);
-    background:rgba(255,255,255,0.02);
-    border-radius:18px;
-}
-
-.status-card h4{
-    color:#7ea8ff;
-    margin-bottom:10px;
-    font-size:0.9rem;
-}
-
-.status-card p{
-    font-size:1.05rem;
-    color:white;
+.info span{
+    color:#78a7ff;
 }
 
 /* NAV */
 
 .nav{
-    margin-top:34px;
     display:flex;
     flex-wrap:wrap;
     gap:14px;
 }
 
 .nav button{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(90,130,255,0.18);
-    color:#dce6ff;
-    padding:15px 24px;
-    border-radius:12px;
+    background:#08101d;
+    border:1px solid #355b99;
+    color:#e7efff;
+    padding:14px 24px;
+    font-family:'IBM Plex Mono', monospace;
     cursor:pointer;
-    font-family:'JetBrains Mono', monospace;
     transition:0.2s;
 }
 
@@ -188,67 +131,47 @@ body{
     border-color:#4e7cff;
 }
 
-/* CONTENT */
+/* SECTION */
 
 .section{
-    padding:34px;
+    padding:26px;
 }
 
 .section-title{
-    font-size:1.7rem;
-    margin-bottom:28px;
-    color:#eef3ff;
-}
-
-.section-title span{
-    color:#6da0ff;
+    color:#79a8ff;
+    font-size:1.8rem;
+    margin-bottom:26px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:1.1fr 0.9fr;
+    grid-template-columns:1fr 370px;
     gap:30px;
-    align-items:center;
 }
 
 .text{
-    color:#98a8cc;
-    line-height:1.9;
+    color:#c5d2ea;
+    line-height:1.8;
     font-size:1rem;
 }
 
-.alert{
+.highlight{
     margin-top:24px;
-    color:#82a7ff;
+    color:#7aa7ff;
 }
 
 .preview{
-    background:
-    linear-gradient(145deg,#0f1728,#090d18);
-    border:1px solid rgba(90,130,255,0.2);
-    border-radius:24px;
-    padding:24px;
-    position:relative;
-}
-
-.preview::before{
-    content:'AI VERIFIED';
-    position:absolute;
-    top:18px;
-    right:18px;
-    font-size:0.7rem;
-    color:#7ea8ff;
-    border:1px solid rgba(90,130,255,0.2);
-    padding:6px 10px;
-    border-radius:999px;
+    border:1px solid #355b99;
+    padding:14px;
+    background:#04070d;
 }
 
 .preview img{
     width:100%;
-    border-radius:18px;
+    display:block;
 }
 
-/* TABLES */
+/* TABLE */
 
 .table-wrap{
     overflow:auto;
@@ -260,67 +183,64 @@ table{
 }
 
 th{
-    text-align:left;
+    border:1px solid #355b99;
     padding:18px;
-    color:#78a2ff;
-    font-size:0.95rem;
-    border-bottom:1px solid rgba(90,130,255,0.2);
-    background:rgba(255,255,255,0.02);
+    color:#78a7ff;
+    text-align:left;
+    background:#0b1324;
+    font-size:1rem;
 }
 
 td{
+    border:1px solid #243d68;
     padding:18px;
-    border-bottom:1px solid rgba(90,130,255,0.08);
-    color:#dce6ff;
+    color:#d8e5ff;
 }
 
-tr:hover{
-    background:rgba(255,255,255,0.02);
+tr:hover td{
+    background:#08101d;
 }
 
-/* BADGES */
+/* BADGE */
 
 .badge{
     display:inline-block;
-    padding:7px 12px;
-    border-radius:999px;
-    font-size:0.8rem;
-}
-
-.private{
-    background:#263248;
-    color:#8fb1ff;
-}
-
-.public{
-    background:#1f3d35;
-    color:#7effcb;
+    padding:6px 12px;
+    border:1px solid #355b99;
+    color:#8eb6ff;
+    font-size:0.85rem;
 }
 
 /* FOOTER */
 
 .footer{
-    padding:28px;
-    text-align:center;
-    color:#8092ba;
+    padding:22px;
+    color:#8ea1c7;
     font-size:0.95rem;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:900px){
 
+.grid{
+    grid-template-columns:1fr;
+}
+
 .brand{
     flex-direction:column;
-    align-items:flex-start;
 }
 
 .brand h1{
     font-size:2rem;
 }
 
-.grid{
-    grid-template-columns:1fr;
+.nav{
+    gap:10px;
+}
+
+.nav button{
+    width:100%;
 }
 
 }
@@ -332,61 +252,43 @@ tr:hover{
 
 <div class="container">
 
-<!-- HERO -->
+<!-- HEADER -->
 
-<div class="panel hero">
+<div class="panel top">
 
-    <div class="topbar">
+    <div class="brand">
 
-        <div class="brand">
+        <img src="https://i.imgur.com/mAKN3lm_d.webp?maxwidth=760&fidelity=grand">
 
-            <img src="https://i.imgur.com/mAKN3lm_d.webp?maxwidth=760&fidelity=grand">
+        <div>
 
-            <div>
-                <h1>Agent<span>v0ID</span></h1>
+            <h1>Agent<span>v0ID</span></h1>
 
-                <p>
-                    AI-native exploit intelligence system built on Base
-                </p>
-            </div>
+            <p>
+                decentralized AI exploit infrastructure
+            </p>
 
         </div>
-
-        <button class="connect">
-            connect wallet
-        </button>
 
     </div>
 
-    <div class="status-grid">
+    <div class="connect">
+        connect wallet
+    </div>
 
-        <div class="status-card">
-            <h4>NETWORK</h4>
-            <p>Base Mainnet (8453)</p>
-        </div>
-
-        <div class="status-card">
-            <h4>STORAGE</h4>
-            <p>Encrypted IPFS Layer</p>
-        </div>
-
-        <div class="status-card">
-            <h4>REVIEWERS</h4>
-            <p>AI + Human Hybrid</p>
-        </div>
-
-        <div class="status-card">
-            <h4>VISIBILITY</h4>
-            <p>Patron Token-Gated</p>
-        </div>
-
+    <div class="info">
+        <div><span>chain:</span> Base Mainnet (8453)</div>
+        <div><span>storage:</span> encrypted ipfs gateway</div>
+        <div><span>wallet:</span> anonymous</div>
+        <div><span>review system:</span> AI + human hybrid</div>
+        <div><span>visibility:</span> token-gated patrons</div>
     </div>
 
     <div class="nav">
-        <button>dashboard</button>
-        <button>submit exploit</button>
-        <button>review queue</button>
-        <button>token access</button>
+        <button>index</button>
+        <button>submit</button>
+        <button>review</button>
+        <button>token</button>
         <button>patrons</button>
     </div>
 
@@ -397,7 +299,7 @@ tr:hover{
 <div class="panel section">
 
     <div class="section-title">
-        <span>[</span> exploit archive <span>]</span>
+        [ exploit archive ]
     </div>
 
     <div class="grid">
@@ -405,18 +307,29 @@ tr:hover{
         <div>
 
             <div class="text">
-                Agentv0ID is a decentralized exploit coordination layer
-                designed for autonomous AI bug hunting.
-                Reports are encrypted client-side before upload,
-                while public metadata and reviewer verdicts
-                are indexed transparently onchain.
-                Token-gated review systems allow elite analysts
-                and patrons to access advanced exploit dossiers.
+
+                Agentv0ID is a Base-native exploit coordination
+                board designed for the AI bug hunting era.
+                Public report metadata is indexed onchain,
+                reviewer verdicts are permanently logged,
+                and encrypted dossier material is uploaded
+                through decentralized storage layers.
+
+                <br><br>
+
+                Reviewer rewards, patron visibility,
+                and token-gated access allow advanced
+                exploit research to operate transparently
+                without centralized moderation.
+
             </div>
 
-            <div class="alert text">
-                registry contracts are currently inactive.
-                public indexing and automated payouts will unlock after deployment.
+            <div class="highlight text">
+
+                exploit registry contract not configured yet.
+                public browsing will remain inactive
+                until deployment.
+
             </div>
 
         </div>
@@ -431,12 +344,12 @@ tr:hover{
 
 </div>
 
-<!-- REPORTS -->
+<!-- FEATURED -->
 
 <div class="panel section">
 
     <div class="section-title">
-        <span>[</span> featured dossiers <span>]</span>
+        [ featured dossiers ]
     </div>
 
     <div class="table-wrap">
@@ -446,25 +359,25 @@ tr:hover{
             <tr>
                 <th>report</th>
                 <th>target</th>
-                <th>access</th>
+                <th>mode</th>
                 <th>severity</th>
                 <th>summary</th>
             </tr>
 
             <tr>
-                <td>VOID-031</td>
-                <td>Bridge Router</td>
-                <td><span class="badge private">private</span></td>
+                <td>VOID-011</td>
+                <td>router core</td>
+                <td><span class="badge">private</span></td>
                 <td>critical</td>
-                <td>cross-chain replay vulnerability detected</td>
+                <td>cross-chain exploit simulation detected</td>
             </tr>
 
             <tr>
-                <td>VOID-044</td>
-                <td>Lending Pool</td>
-                <td><span class="badge public">public</span></td>
+                <td>VOID-028</td>
+                <td>vault engine</td>
+                <td><span class="badge">public</span></td>
                 <td>high</td>
-                <td>oracle desync exploit simulation by AI agents</td>
+                <td>AI-generated oracle desync path</td>
             </tr>
 
         </table>
@@ -478,7 +391,7 @@ tr:hover{
 <div class="panel section">
 
     <div class="section-title">
-        <span>[</span> recent reports <span>]</span>
+        [ recent reports ]
     </div>
 
     <div class="table-wrap">
@@ -495,21 +408,21 @@ tr:hover{
             </tr>
 
             <tr>
-                <td>#551</td>
+                <td>#201</td>
                 <td>ghost-node</td>
-                <td>18m ago</td>
+                <td>12m ago</td>
                 <td>private</td>
-                <td>vault engine</td>
+                <td>bridge</td>
                 <td>under AI review</td>
             </tr>
 
             <tr>
-                <td>#552</td>
+                <td>#202</td>
                 <td>voidtrace</td>
                 <td>1h ago</td>
                 <td>public</td>
-                <td>staking pool</td>
-                <td>confirmed exploit path</td>
+                <td>vault</td>
+                <td>exploit confirmed</td>
             </tr>
 
         </table>
@@ -523,7 +436,7 @@ tr:hover{
 <div class="panel section">
 
     <div class="section-title">
-        <span>[</span> patron visibility <span>]</span>
+        [ patron visibility ]
     </div>
 
     <div class="table-wrap">
@@ -534,7 +447,7 @@ tr:hover{
                 <th>rank</th>
                 <th>identity</th>
                 <th>holdings</th>
-                <th>visibility</th>
+                <th>status</th>
             </tr>
 
             <tr>
@@ -548,7 +461,7 @@ tr:hover{
                 <td>02</td>
                 <td>agent patrons</td>
                 <td>hidden</td>
-                <td>review cache active</td>
+                <td>review cache warming</td>
             </tr>
 
             <tr>
@@ -567,8 +480,10 @@ tr:hover{
 <!-- FOOTER -->
 
 <div class="panel footer">
-    Agentv0ID // decentralized AI exploit infrastructure //
-    Base-native security intelligence layer
+
+    Agentv0ID / decentralized exploit infrastructure /
+    AI-native security intelligence layer
+
 </div>
 
 </div>
